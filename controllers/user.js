@@ -120,3 +120,15 @@ exports.purchaseHistory = (req, res) => {
             res.json(orders)
         })
 }
+
+exports.deletePurchaseHistory = (req, res) => {
+    let product = req.product
+    product.remove((err, deletedProduct) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err),
+            })
+        }
+        res.json(orders)
+    })
+}

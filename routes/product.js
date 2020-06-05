@@ -12,6 +12,7 @@ const {
     listCategories,
     listBySearch,
     photo,
+    photo2,
     listSearch
 } = require("../controllers/product");
 const { requireSignin, isAuth, isAdmin } = require("../controllers/auth");
