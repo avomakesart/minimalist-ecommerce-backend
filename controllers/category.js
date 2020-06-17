@@ -61,7 +61,7 @@ exports.remove = (req, res) => {
                     })
                 }
                 res.json({
-                    message: 'Category deleted',
+                    message: `Category: ${category.name} deleted`,
                 })
             })
         }

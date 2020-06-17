@@ -37,7 +37,7 @@ exports.read = (req, res) => {
 
 exports.update = (req, res) => {
     // console.log('UPDATE USER - req.user', req.user, 'UPDATE DATA', req.body);
-    const { name, password } = req.body
+    const { name, last_name, password } = req.body
 
     User.findOne({ _id: req.profile._id }, (err, user) => {
         if (err || !user) {
@@ -133,3 +133,15 @@ exports.deletePurchaseHistory = (req, res) => {
         res.json(orders)
     })
 }
+
+exports.list = (req, res) => {
+    User.find().exec((err, data) => {
+        if (err) {
+            return res.status(400).json({
+                error: errorHandler(err),
+            })
+        }
+        res.json(data)
+    })
+}
+
